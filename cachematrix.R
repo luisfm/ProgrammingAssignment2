@@ -3,7 +3,20 @@
 ## Each of these functions are described below.
 ## By Luis F. Montoya
 ## April 26, 2014
-## 
+## USAGE:
+## 1. First generate an invertible matrix ex: a <- matrix(runif(5^2), 5)
+## 2. Generate list 'b' as: b <- makeCacheMatrix(a)
+## 3. Find the inverse of 'a' using this call: c <- cacheSolve(b)
+## 4. Verify that the cache is working by calling cacheSolve(b) again.
+##    Should get message "getting cached data" followed by 'a's inverse
+## 5. Replace the original matrix inside list 'b' using this command:
+##    b$set(matrix(runif(5^2), 5))
+## 6. Issuing command c <- cacheSolve(b) recalculates the inverse of 
+##    matrix. 
+## 7. Verify that the inverse is obtained by issuing the command:
+##    round(b$get() %*% cacheSolve(b), 2)
+##    The result should be a 5x5 Identity Matrix
+##
 
 ## makeCacheMatrix()
 ## This function takes an invertible matrix as argument and generates a
